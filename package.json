@@ -1,0 +1,39 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "Simple calculator based on IOS version",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dkanderson/calculator.git"
+  },
+  "keywords": [
+    "calculator",
+    "ios"
+  ],
+  "devDependencies": {
+    "connect": "^3.6.6",
+    "grunt": "latest",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-cssmin": "^2.2.1",
+    "grunt-contrib-jshint": "^0.6.5",
+    "grunt-contrib-less": "^1.4.1",
+    "grunt-contrib-uglify": "^3.3.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-processhtml": "^0.4.1",
+    "less-plugin-autoprefix": "^1.5.1",
+    "less-plugin-clean-css": "^1.5.1",
+    "load-grunt-tasks": "^3.5.2",
+    "serve-static": "^1.13.2",
+    "time-grunt": "^1.4.0"
+  },
+  "author": "Duane K. Anderson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dkanderson/calculator/issues"
+  },
+  "homepage": "https://github.com/dkanderson/calculator#readme"
+}

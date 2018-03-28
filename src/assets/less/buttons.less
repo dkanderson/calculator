@@ -1,0 +1,88 @@
+.buttons{
+    position: relative;
+    //margin-top: 100px;
+    
+    button{
+      // Reset
+      margin: 0;
+      padding: 0;
+      border: none;
+      border-left: 1px solid rgba(0,0,0,0.32);
+      border-bottom: 1px solid rgba(0,0,0,0.32);
+      outline: none;
+      
+      // Text
+      line-height: 40px;
+      text-align: center;
+      font-family: @button-text;
+      font-size: 1.2em;
+      color: @button_text_color;
+      
+      float: left;
+      height: 40px;
+      width: 60px;
+      background-color: #ddd;
+      &.top-row{
+        background-color: #ccc;
+      }
+      &.operator.right{
+        background-color: #F57F17;
+      }
+      &.colspan-two{
+        width: 120px;
+      }
+      &.right{
+        color: #fff;
+      } 
+    }
+    .btm-left-radius{
+      border-bottom-left-radius: 5px;  
+    }
+    
+    .btm-right-radius{
+      border-bottom-right-radius: 5px;
+    }
+    
+    .top-row, .row{
+      .clear-fix();
+    }
+  } 
+  
+  //SVG
+  #plusminus{
+    fill: @button_text_color;
+  }
+
+  .nav-buttons{
+    position: absolute;
+    z-index: 9;
+  }
+
+  .control-btns{
+    position: absolute;
+    width: 100px;
+    height:20px;
+    top: 5px;
+    left: 5px;
+    
+    button{
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+      padding: 0;
+      border: none;
+      margin: 0 3px 0 0;
+      
+      &.close{
+        background-color: #F44336;
+      }
+      
+      &.minimize{
+        background-color: #FFCA28;
+      }
+      
+      &.flip{
+        background-color: #00C853;
+      }
+    }
+  }

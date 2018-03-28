@@ -1,0 +1,147 @@
+body{   
+ background-image: url(@background_url);
+}
+
+
+// move this
+button{
+  outline: none;
+}
+
+#wrapper{
+  width: 240px;
+  height: 300px;
+  position: relative;
+  margin: 20% auto;
+  
+  -webkit-transition: all .6s ease;
+	-o-transition: all .6s ease;
+	transition: all .6s ease;
+  
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -o-perspective: 1000;
+   perspective: 1000;
+}
+
+
+#calculator{
+  height: 300px;
+  width: 240px;
+  background: rgba(0, 0, 0, .6);
+  border-radius: 7px;
+  border: 1px solid rgba(0,0,0,0.35);
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.25);
+  
+  
+  
+  .display{
+    height: 100px;
+  }
+  .display-text{
+      font-family: @display-font;
+      color: @display-text-color;
+      font-size: 2.5em;
+      font-weight: 100;
+      text-align: right;
+      right: 5px;
+      
+      // Positioning
+      position: absolute;
+      z-index: 100;
+      top: 50%;
+    
+      width: 100%;
+      
+     }
+  
+  .screen{
+    height: 100px;
+    position: relative;
+  }
+  .gradient {
+    width: 100%;
+    position: absolute;
+    background: linear-gradient(270deg, rgba(72,60,60,0.75), rgba(72,60,60,0.7), rgba(72,60,60,0.65), rgba(72,60,60,0.6));
+    background-size: 800% 800%;
+    -webkit-animation: colors 60s ease infinite;
+    -moz-animation: colors 60s ease infinite;
+    animation: colors 60s ease infinite;
+    
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+  }
+
+  @-webkit-keyframes colors {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+  @-moz-keyframes colors {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+  @keyframes colors { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+
+  
+}
+
+.flipthis{
+  -webkit-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  transition: all 0.6s;
+
+  -moz-transform: perspective(1000px);
+    -moz-transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  position:relative;
+
+}
+.front, .back{
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  -moz-transition: 0.6s;
+  -moz-transform-style: preserve-3d;
+
+  height: 300px;
+  position:absolute;
+  top:0;
+  left:0;
+  
+  border-radius: 7px;
+
+}
+.back{
+  background-color: rgba(0,0,0,0.75);
+  -webkit-transform: rotateY(180deg);
+  .credits{
+    padding: 20px;
+    color: @credits_text_color;
+    .credit{
+      padding: 10px; 
+    }
+    a{
+      color: @credits_link_color;
+      text-decoration: none;
+    }
+  }
+}
+.flipp.flipthis{
+  -webkit-transform: rotateY(180deg);
+  .front{
+    opacity: (0);  
+  }
+  
+}
