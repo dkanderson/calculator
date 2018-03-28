@@ -1,9 +1,40 @@
-.clear-fix(){
-  &:after{
-   content: "";
+
+
+.clear-fix() {
+  
+  &:after {
+  
+  	content: "";
     visibility: hidden;
     display: block;
     height: 0;
     clear: both; 
+
   }
+
+}
+
+.gradient() {
+
+	width: 100%;
+    position: absolute;
+    background: linear-gradient(270deg, rgba(72,60,60,0.75), rgba(72,60,60,0.7), rgba(72,60,60,0.65), rgba(72,60,60,0.6));
+    background-size: 800% 800%;
+    
+    -webkit-animation: colors 60s ease infinite;
+    -moz-animation: colors 60s ease infinite;
+    animation: colors 60s ease infinite;
+    
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+
+}
+
+.dimensions() {
+
+	width: @calculator_width;
+	height: @calculator_height;
 }

@@ -1,15 +1,24 @@
-.buttons{
+
+button {
+
+  // Reset
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+
+
+}
+
+
+.buttons {
+
     position: relative;
-    //margin-top: 100px;
     
-    button{
-      // Reset
-      margin: 0;
-      padding: 0;
-      border: none;
+    button {
+      
       border-left: 1px solid rgba(0,0,0,0.32);
       border-bottom: 1px solid rgba(0,0,0,0.32);
-      outline: none;
       
       // Text
       line-height: 40px;
@@ -22,67 +31,99 @@
       height: 40px;
       width: 60px;
       background-color: #ddd;
-      &.top-row{
+
+      &.top-row {
+
         background-color: #ccc;
+
       }
-      &.operator.right{
+
+      &.operator.right {
+
         background-color: #F57F17;
+
       }
-      &.colspan-two{
+
+      &.colspan-two {
+
         width: 120px;
+
       }
-      &.right{
+
+      &.right {
+
         color: #fff;
+
       } 
+
     }
-    .btm-left-radius{
-      border-bottom-left-radius: 5px;  
+
+    .btm-left-radius {
+
+      border-bottom-left-radius: 5px;
+
     }
     
-    .btm-right-radius{
+    .btm-right-radius {
+
       border-bottom-right-radius: 5px;
+
     }
     
-    .top-row, .row{
+    .top-row, .row {
+
       .clear-fix();
+   
     }
+
   } 
   
   //SVG
-  #plusminus{
+  #plusminus {
+
     fill: @button_text_color;
+
   }
 
-  .nav-buttons{
+  .nav-buttons {
+
     position: absolute;
     z-index: 9;
+
   }
 
-  .control-btns{
+  .control-btns {
+
     position: absolute;
     width: 100px;
     height:20px;
     top: 5px;
     left: 5px;
     
-    button{
+    button {
+
       width: 10px;
       height: 10px;
       border-radius: 5px;
       padding: 0;
-      border: none;
       margin: 0 3px 0 0;
       
-      &.close{
+      &.close {
+
         background-color: #F44336;
+
       }
       
-      &.minimize{
+      &.minimize {
+
         background-color: #FFCA28;
+
       }
       
-      &.flip{
+      &.flip {
+
         background-color: #00C853;
+
       }
     }
   }
