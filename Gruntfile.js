@@ -72,52 +72,48 @@ module.exports = function (grunt) {
             }
         },
         less: {
-                  development: {
+            development: {
                     options: {
-                      paths: ['src/assets']
+                        paths: ['src/assets']
                     },
-                    files: {
-                      'src/assets/css/main.css': 'src/assets/less/main.less'
-                    }
-                  },
-                  production: {
-                    options: {
-                      paths: ['src/assets/css'],
-                      plugins: [
-                        new (require('less-plugin-autoprefix'))({browsers: ["last 2 versions"]}),
-                        // new (require('less-plugin-clean-css'))(cleanCssOptions)
-                      ]
-                      
-                    },
-                    files: {
-                      'dist/assets/main.css': 'assets/src/main.less'
-                    }
+                files: {
+                  'src/assets/css/main.css': 'src/assets/less/main.less'
                 }
             },
-            uglify: {
-                options: {
-                  mangle: {
+            production: {
+                    options: {
+                        paths: ['src/assets/css'],
+                        plugins: [
+                            new (require('less-plugin-autoprefix'))({browsers: ["last 2 versions"]}),
+                            // new (require('less-plugin-clean-css'))(cleanCssOptions)
+                        ]  
+                    },
+                files: {
+                  'dist/assets/main.css': 'assets/src/main.less'
+                }
+            }
+        },
+        uglify: {
+            options: {
+                mangle: {
                     reserved: []
-                  }
-                },
-                my_target: {
-                  files: {
-                    'dist/js/calculator.min.js': ['src/assets/js/calc.js']
-                  }
                 }
             },
-            connect: {
-                server: {
-                  options: {
+            my_target: {
+                files: {
+                    'dist/js/calculator.min.js': ['src/assets/js/calc.js']
+                }
+            }
+        },
+        connect: {
+            server: {
+                options: {
                     port: 8000,
                     base: '/'
-                    }
-                  }
-            }
+                }
+              }
+        }
               
-
-           
-
     });
 
     // Register tasks
