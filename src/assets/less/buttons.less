@@ -17,42 +17,42 @@ button {
     
     button {
       
-      border-left: 1px solid rgba(0,0,0,0.32);
-      border-bottom: 1px solid rgba(0,0,0,0.32);
+      border-left: 1px solid @button_border_color;
+      border-bottom: 1px solid @button_border_color;
       
       // Text
-      line-height: 40px;
+      line-height: @button_height;
       text-align: center;
-      font-family: @button-text;
-      font-size: 1.2em;
+      font-family: @button_text;
+      font-size: @button_font_size;
       color: @button_text_color;
       
       float: left;
-      height: 40px;
-      width: 60px;
-      background-color: #ddd;
+      height: @button_height;
+      width: @button_width;
+      background-color: @button_bg_color_primary;
 
       &.top-row {
 
-        background-color: #ccc;
+        background-color: @button_bg_color_secondary;
 
       }
 
       &.operator.right {
 
-        background-color: #F57F17;
+        background-color: @button_bg_color_operators;
 
       }
 
       &.colspan-two {
 
-        width: 120px;
+        width: @button_colspan_two_width;
 
       }
 
       &.right {
 
-        color: #fff;
+        color: @button_text_color_operators;
 
       } 
 
@@ -60,13 +60,13 @@ button {
 
     .btm-left-radius {
 
-      border-bottom-left-radius: 5px;
+      border-bottom-left-radius: @calculator_radius;
 
     }
     
     .btm-right-radius {
 
-      border-bottom-right-radius: 5px;
+      border-bottom-right-radius: @calculator_radius;
 
     }
     
@@ -102,27 +102,27 @@ button {
     
     button {
 
-      width: 10px;
-      height: 10px;
-      border-radius: 5px;
+      width: @control_button_height;
+      height: @control_button_width;
+      border-radius: @control_button_radius;
       padding: 0;
       margin: 0 3px 0 0;
       
       &.close {
 
-        background-color: #F44336;
+        background-color: @control_button_close_bg_color;
 
       }
       
       &.minimize {
 
-        background-color: #FFCA28;
+        background-color: @control_button_minimize_bg_color;
 
       }
       
       &.flip {
 
-        background-color: #00C853;
+        background-color: @control_button_flip_bg_color;
 
       }
     }

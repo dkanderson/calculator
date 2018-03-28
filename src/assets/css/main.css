@@ -50,7 +50,7 @@ body {
 body {
   font-family: 'Work Sans', helvetica, sans-serif;
   line-height: 1em;
-  color: #333;
+  color: #666;
   font-weight: 100;
 }
 button {
@@ -69,7 +69,7 @@ button {
   text-align: center;
   font-family: 'Work Sans', helvetica, sans-serif;
   font-size: 1.2em;
-  color: #666666;
+  color: #666;
   float: left;
   height: 40px;
   width: 60px;
@@ -88,10 +88,10 @@ button {
   color: #fff;
 }
 .buttons .btm-left-radius {
-  border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 7px;
 }
 .buttons .btm-right-radius {
-  border-bottom-right-radius: 5px;
+  border-bottom-right-radius: 7px;
 }
 .buttons .top-row:after,
 .buttons .row:after {
@@ -102,7 +102,7 @@ button {
   clear: both;
 }
 #plusminus {
-  fill: #666666;
+  fill: #666;
 }
 .nav-buttons {
   position: absolute;
