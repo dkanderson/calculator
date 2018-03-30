@@ -10,9 +10,9 @@ module.exports = function (grunt) {
     require('time-grunt')(grunt);
 
     // Initialize Server
-    var connect = require('connect');
-    var serveStatic = require('serve-static');
-    connect(serveStatic('.')).listen(9001);
+    // var connect = require('connect');
+    // var serveStatic = require('serve-static');
+    // connect(serveStatic('.')).listen(9001);
 
     // Project configuration.
     grunt.initConfig({

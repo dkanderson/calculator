@@ -18,24 +18,29 @@
     <body>
 
       <div id="wrapper" class="flipWrap">
+        
         <header class="nav-buttons">
-            <nav class="control-btns">
-              <button class="close" data-close></button>
-              <button class="minimize" data-minimize></button>
-              <button id="flipper" class="flip" data-flip></button>
-            </nav>
-          </header>
+          <nav class="control-btns">
+            <button class="close" data-close></button>
+            <button class="minimize" data-minimize></button>
+            <button id="flipper" class="flip" data-flip></button>
+          </nav>
+        </header><!-- /.navButtons -->
+
         <div id="calculator-flipper" class="flipthis">
+          
           <main id="calculator" class="front">
+            
             <section class="screen">
-              <span class="display-text" data-result>0</span>
+              <span id="display-text" class="display-text" data-result>0</span>
               <div class="display gradient"></div>
-            </section>
+            </section><!-- /.screen -->
+
             <section class="buttons" id="keyPad">
               <div class="row">
-                <button class="operator top-row btn-col" data-ac>AC</button>
-                <button class="operator top-row btn-col" data-operator="plusmn">
-                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="plusminus" x="0px" y="0px" width="15px" height="40px" viewBox="0 0 120 120" style="enable-background:new 0 0 15 20;" xml:space="preserve">
+                <button class="operator top-row btn-col" id="ac" data-ac>AC</button>
+                <button class="operator top-row btn-col" data-pm="plusmn">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="plusminus" x="0px" y="0px" width="15px" height="40px" viewBox="0 0 120 120" style="enable-background:new 0 0 15 20;" xml:space="preserve" data-pm="plusmn">
                     <g>
                       <g>
                         <path d="M77.955,109.975c-4.037,0-7.309,3.271-7.309,7.308c0,4.037,3.272,7.31,7.309,7.31h56.029c4.037,0,7.309-3.271,7.309-7.31    c0-4.036-3.271-7.308-7.309-7.308H77.955z"></path>
@@ -45,7 +50,7 @@
                     </g>
                   </svg>
                 </button>
-                <button class="operator top-row btn-col" data-operator="percnt">&percnt;</button>
+                <button class="operator top-row btn-col" data-operator="percentage">&percnt;</button>
                 <button class="operator top-row btn-col right" data-operator="divide">&divide;</button>
               </div>
               <div class="row">
@@ -68,11 +73,13 @@
               </div>
               <div class="row">
                 <button class="number col colspan-two btm-left-radius" data-number="0">0</button>
-                <button class="number dot col" data.dot>.</button>
+                <button class="number dot col" data-dot>.</button>
                 <button class="operator col right btm-right-radius" data-operator="equals">&equals;</button>
               </div>
-            </section>
-          </main>
+            </section> <!-- /.keyPad -->
+
+          </main><!-- /.front -->
+
           <div class="back">
             <footer class="credits">
               <div class="credit">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
@@ -82,9 +89,12 @@
               </div>
             </footer>
           </div> <!-- /.back -->
+
+         
+
         </div> <!-- /.flipthis -->
       </div> <!-- /#wrapper -->
-
+       
       <script type="text/javascript" src="src/assets/js/calc.js"></script>
 
       <!-- Live Reload sccript -->
