@@ -13,7 +13,8 @@
       PRECISION = 10,
       displayLength = 0,
       resultDisplay = '',
-      result = 0;
+      result = 0,
+      percentage = 0;
       
   
   var calculator = {
@@ -80,22 +81,6 @@
             }
 
             return total;
-        },
-
-        percentage: function () {
-
-            var i = 0,
-                total = Array.prototype.shift.apply(arguments),
-                l = arguments.length;
-
-            for (i = 0; i < l; i += 1) {
-                
-                total = arguments[i] / 100;
-
-            }
-
-            return total;
-
         }
 
   };
@@ -116,7 +101,8 @@
         dataEquals = null,
         dataDot = null,
         dataAc = null,
-        dataPm = null;
+        dataPm = null,
+        dataPercentage = null;
 
     // Handle Mouse Events
     eventUtil.addEvent(document, 'click', function (evt) {
@@ -127,6 +113,7 @@
       dataEquals = evt.target.attributes['data-equals'];
       dataAc = evt.target.attributes['data-ac'];
       dataPm = evt.target.attributes['data-pm'];
+      dataPercentage = evt.target.attributes['data-percentage'];
 
 
       // Toggle flip container class
@@ -147,7 +134,7 @@
 
       var invalidKey = false;
 
-      dataNumber = null;
+      resetDefaults();
       
       if ( evt.keyCode === 61 || evt.keyCode === 13 ) {
 
@@ -199,7 +186,15 @@
 
        } else if ( evt.keyCode === 37) {
 
-          dataOperator = { value: "percentage"};
+          dataPercentage = true;
+
+       } else if ( evt.keyCode === 99 ) {
+
+          dataAc = true;
+
+       } else if ( evt.keyCode === 112 ) {
+
+          dataPm = true;
 
        } else {
 
@@ -214,6 +209,19 @@
 
       }
       
+
+    });
+
+
+    eventUtil.addEvent(document, 'keydown', function (evt) {
+
+        if ( evt.keyCode === 27 ) {
+
+          resetDefaults();
+          dataAc = true;
+          eventManager ( dataNumber, dataOperator, dataDot, dataEquals, dataAc, dataPm );
+
+        }
 
     });
 
@@ -265,6 +273,18 @@
       dotFlag = false;
       resultDisplay = '0';
       ac.innerHTML = 'AC';
+
+    }
+
+    function resetDefaults () {
+
+      dataNumber = null;
+      dataOperator = null;
+      dataEquals = null;
+      dataDot = null;
+      dataAc = null;
+      dataPm = null;
+      dataPercentage = null;
 
     }
    
@@ -374,8 +394,17 @@
           if ( cache.length > 0 ) {
 
               neg = (-1 * parseFloat(cache.join('')));
-              console.log(neg);
               resultDisplay = neg;
+
+          }
+
+        } else if ( dataPercentage ) {
+
+          if ( cache.length > 0 ) {
+
+              percentage = (parseFloat(cache.join('')) / 100 );
+              cache = [];
+              resultDisplay = percentage;
 
           }
 
