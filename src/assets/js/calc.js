@@ -15,7 +15,6 @@
       resultDisplay = '',
       result = 0;
       
-
   
   var calculator = {
 
@@ -101,8 +100,6 @@
 
   };
 
-  
-
   function handleInput() {
 
     var cache = [],
@@ -144,7 +141,6 @@
 
       
     });
-
 
     // Handle Keyboard Events
     eventUtil.addEvent(document, 'keypress', function (evt) {
@@ -201,12 +197,15 @@
           
           dataNumber = { value: evt.key };
 
+       } else if ( evt.keyCode === 37) {
+
+          dataOperator = { value: "percentage"};
+
        } else {
 
-          invalidKey = true;
+        invalidKey = true;
 
        }
-
 
       // Call eventManager
       if ( !invalidKey && evt.keyCode !== 16 ) {
@@ -217,8 +216,6 @@
       
 
     });
-
-
 
 
     function displayUpdate ( updateString, refreshCache ) {
@@ -256,7 +253,6 @@
           return;
 
         }
-        
 
     }
 
@@ -271,7 +267,6 @@
       ac.innerHTML = 'AC';
 
     }
-
    
     // Make sure result is not too big for display
     function formatResult ( result ) {
@@ -285,10 +280,7 @@
 
           return result;
 
-
         }
-
-
 
     }
 
@@ -305,8 +297,6 @@
 
             displayLength = cache.join( '' ).length;
             resultDisplay = cache.join( '' );
-
-            
 
             // Update font size when over 10 characters
             if( displayLength > 10 ) {
@@ -376,7 +366,6 @@
 
             clearAll();
 
-
           }
           
 
@@ -402,8 +391,6 @@
     }
 
   }
-
-
   
   eventUtil = {
 
