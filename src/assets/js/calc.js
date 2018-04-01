@@ -10,6 +10,7 @@
       ac = document.getElementById('ac'),
       acFlag = false,
       MAXDIGITS = 17,
+      PRECISION = 10,
       displayLength = 0,
       resultDisplay = '',
       result = 0;
@@ -112,17 +113,23 @@
         num1Flag = false,
         funcCache = [],
         result = 0,
-        neg = false;
+        neg = false,
+        dataNumber = null,
+        dataOperator = null,
+        dataEquals = null,
+        dataDot = null,
+        dataAc = null,
+        dataPm = null;
 
-    //event delegation
+    // Handle Mouse Events
     eventUtil.addEvent(document, 'click', function (evt) {
 
-      var dataNumber = evt.target.attributes['data-number'],
-          dataOperator = evt.target.attributes['data-operator'],
-          dataDot = evt.target.attributes['data-dot'],
-          dataEquals = evt.target.attributes['data-equals'],
-          dataAc = evt.target.attributes['data-ac'],
-          dataPm = evt.target.attributes['data-pm'];
+      dataNumber = evt.target.attributes['data-number'];
+      dataOperator = evt.target.attributes['data-operator'];
+      dataDot = evt.target.attributes['data-dot'];
+      dataEquals = evt.target.attributes['data-equals'];
+      dataAc = evt.target.attributes['data-ac'];
+      dataPm = evt.target.attributes['data-pm'];
 
 
       // Toggle flip container class
@@ -132,7 +139,160 @@
         
       }
 
+      // Call eventManager
+      eventManager ( dataNumber, dataOperator, dataDot, dataEquals, dataAc, dataPm );
 
+      
+    });
+
+
+    // Handle Keyboard Events
+    eventUtil.addEvent(document, 'keypress', function (evt) {
+
+      var invalidKey = false;
+
+      dataNumber = null;
+      
+      if ( evt.keyCode === 61 || evt.keyCode === 13 ) {
+
+        dataOperator = { value: "equals" };
+
+      } else if ( evt.keyCode >= 42 && evt.keyCode <= 47 ) { // fix
+        
+        switch ( evt.keyCode ) {
+
+            case 42:
+
+              dataOperator = { value: "multiply" };
+              break;
+
+            case 43:
+
+              dataOperator = { value: "plus" };
+              break;
+
+            case 44:
+
+              invalidKey = true;
+              break;
+
+            case 45:
+
+              dataOperator = { value: "minus" };
+              break;
+
+            case 46:
+
+              dataDot = true;
+              break;
+
+            case 47:
+
+              dataOperator = { value: "divide" };
+              break;
+
+            default:
+
+              invalidKey = true;
+              break;
+        }
+
+      } else if ( evt.keyCode >= 48 && evt.keyCode <= 57 ) {
+          
+          dataNumber = { value: evt.key };
+
+       } else {
+
+          invalidKey = true;
+
+       }
+
+
+      // Call eventManager
+      if ( !invalidKey && evt.keyCode !== 16 ) {
+
+        eventManager ( dataNumber, dataOperator, dataDot, dataEquals, dataAc, dataPm );
+
+      }
+      
+
+    });
+
+
+
+
+    function displayUpdate ( updateString, refreshCache ) {
+      
+      if ( refreshCache ) {
+
+        cache = [];
+        funcCache = [];
+
+      }
+
+      displayText.innerHTML = updateString;
+
+    }
+
+    function calculateSomeShit ( numCache, func, updateDisplay ) {
+
+        var result, calculate = calculator.calculate;
+
+        if ( numCache[1] ) {
+
+          result = calculate(numCache[0], numCache[1], calculator[func]);
+          numCache[1] = result;
+          numCache.shift();
+          funcCache.shift();
+
+          if ( updateDisplay ) {
+
+            resultDisplay = formatResult( result, true );
+
+          }
+          
+        } else {
+
+          return;
+
+        }
+        
+
+    }
+
+    function clearAll () {
+
+      cache = [];
+      numCache = [];
+      funcCache = [];
+      result = 0;
+      dotFlag = false;
+      resultDisplay = '0';
+      ac.innerHTML = 'AC';
+
+    }
+
+   
+    // Make sure result is not too big for display
+    function formatResult ( result ) {
+
+        // Number.
+        if ( !isNaN ( result ) && result.toExponential().length > MAXDIGITS ) {
+
+          return result.toPrecision( PRECISION ).replace ( /\+/g, '');
+
+        } else {
+
+          return result;
+
+
+        }
+
+
+
+    }
+
+    function eventManager ( dataNumber, dataOperator, dataDot, dataEquals, dataAc, dataPm ) {
 
       if( dataNumber ) {
 
@@ -230,68 +390,14 @@
 
           }
 
+        } else {
+
+          return;
         }
 
         
         displayUpdate ( resultDisplay, false );
 
-    });
-
-    function displayUpdate ( updateString, refreshCache ) {
-      
-      if ( refreshCache ) {
-
-        cache = [];
-
-      }
-
-      displayText.innerHTML = updateString;
-
-    }
-
-    function calculateSomeShit ( numCache, func, updateDisplay ) {
-
-        var result, calculate = calculator.calculate;
-
-        if ( numCache[1] ) {
-
-          result = calculate(numCache[0], numCache[1], calculator[func]);
-          numCache[1] = result;
-          numCache.shift();
-          funcCache.shift();
-
-          if ( updateDisplay ) {
-
-            resultDisplay = result;
-
-          }
-          
-        } else {
-
-          return;
-
-        }
-        
-
-    }
-
-    function clearAll () {
-
-      cache = [];
-      numCache = [];
-      funcCache = [];
-      result = 0;
-      dotFlag = false;
-      resultDisplay = '0';
-      ac.innerHTML = 'AC';
-
-    }
-
-   
-    // Make sure result is not too big for display
-    function formatResult ( result ) {
-
-        // Number.
 
     }
 
