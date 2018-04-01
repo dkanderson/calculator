@@ -9,11 +9,6 @@ module.exports = function (grunt) {
     // Show elapsed time
     require('time-grunt')(grunt);
 
-    // Initialize Server
-    // var connect = require('connect');
-    // var serveStatic = require('serve-static');
-    // connect(serveStatic('.')).listen(9001);
-
     // Project configuration.
     grunt.initConfig({
         // Metadata.
@@ -34,17 +29,6 @@ module.exports = function (grunt) {
                 'grunfile.js',
                 'src/assets/js/*.js'
             ]
-        },
-
-        cssmin: {
-            add_banner: {
-                options: {
-                    banner: '<%= banner %>',
-                },
-                files: {
-                    'dist/css/main.min.css': ['src/assets/css/*.css']
-                }
-            }
         },
 
         processhtml: {
@@ -89,7 +73,7 @@ module.exports = function (grunt) {
                         ]  
                     },
                 files: {
-                  'dist/assets/main.css': 'assets/src/main.less'
+                  'dist/assets/css/main.min.css': 'src/assets/less/main.less'
                 }
             }
         },
@@ -101,7 +85,7 @@ module.exports = function (grunt) {
             },
             my_target: {
                 files: {
-                    'dist/js/calculator.min.js': ['src/assets/js/calc.js']
+                    'dist/assets/js/calculator.min.js': ['src/assets/js/calc.js']
                 }
             }
         },
@@ -131,7 +115,6 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'jshint', 
         'less:production',
-        'cssmin',
         'uglify',
         'processhtml'
     ]);
