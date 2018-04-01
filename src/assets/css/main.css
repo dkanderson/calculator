@@ -91,6 +91,10 @@ button {
 .buttons button.right {
   color: #fff;
 }
+.buttons button:focus {
+  background-color: #ddd;
+  background: linear-gradient(180deg, #dddddd, rgba(210, 210, 210, 0.72));
+}
 .buttons .btm-left-radius {
   border-bottom-left-radius: 7px;
 }
@@ -112,28 +116,45 @@ button {
   position: absolute;
   z-index: 9;
 }
-.control-btns {
+.nav-buttons .control-btns {
   position: absolute;
-  width: 100px;
+  width: 50px;
   height: 20px;
   top: 5px;
   left: 5px;
+  -webkit-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  transition: all 0.6s;
 }
-.control-btns button {
+.nav-buttons .control-btns.flip-mode {
+  -webkit-animation: throb 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  -moz-animation: throb 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  animation: throb 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+.nav-buttons .control-btns.flip-out {
+  -webkit-animation: throbb 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  -moz-animation: throbb 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  animation: throbb 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+.nav-buttons .control-btns button {
   width: 10px;
   height: 10px;
   border-radius: 5px;
   padding: 0;
   margin: 0 3px 0 0;
+  transition: ease .31s;
 }
-.control-btns button.close {
+.nav-buttons .control-btns button.close {
   background-color: #F44336;
 }
-.control-btns button.minimize {
+.nav-buttons .control-btns button.minimize {
   background-color: #FFCA28;
 }
-.control-btns button.flip {
+.nav-buttons .control-btns button.flip {
   background-color: #00C853;
+}
+.nav-buttons .control-btns button:hover {
+  transform: scale(1.2);
 }
 .flipWrap {
   -webkit-transition: all .6s ease;
@@ -220,5 +241,27 @@ button {
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+@-webkit-keyframes throb {
+  0% {
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes throbb {
+  0% {
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
   }
 }

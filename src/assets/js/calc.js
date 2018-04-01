@@ -7,6 +7,7 @@
       flipper = document.getElementById('flipper'),
       calculatorFlipper = document.getElementById('calculator-flipper'),
       displayText = document.getElementById('display-text'),
+      navButtons = document.getElementById('nav-buttons'),
       ac = document.getElementById('ac'),
       acFlag = false,
       MAXDIGITS = 17,
@@ -120,6 +121,8 @@
       if( evt.target.id === "flipper" ) {
         
         calculatorFlipper.classList.toggle( 'flipp' );
+        navButtons.classList.toggle('flip-mode');
+        navButtons.classList.toggle('flip-out');
         
       }
 
@@ -128,6 +131,7 @@
 
       
     });
+
 
     // Handle Keyboard Events
     eventUtil.addEvent(document, 'keypress', function (evt) {

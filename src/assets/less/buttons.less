@@ -57,6 +57,13 @@ button {
 
       } 
 
+      &:focus {
+
+        background-color: @button_bg_color_primary;
+        background: linear-gradient(180deg, rgba(221,221,221,1), rgba(210,210,210,0.72));
+
+      }
+
     }
 
     .btm-left-radius {
@@ -91,40 +98,70 @@ button {
     position: absolute;
     z-index: 9;
 
-  }
 
-  .control-btns {
+    .control-btns {
 
-    position: absolute;
-    width: 100px;
-    height:20px;
-    top: 5px;
-    left: 5px;
-    
-    button {
+      position: absolute;
+      width: 50px;
+      height:20px;
+      top: 5px;
+      left: 5px;
 
-      width: @control_button_height;
-      height: @control_button_width;
-      border-radius: @control_button_radius;
-      padding: 0;
-      margin: 0 3px 0 0;
-      
-      &.close {
+      -webkit-transition: all 0.6s;
+      -o-transition: all 0.6s;
+      transition: all 0.6s;
 
-        background-color: @control_button_close_bg_color;
+      &.flip-mode{
+
+        -webkit-animation: throb .5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+        -moz-animation: throb .5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+        animation: throb .5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 
       }
-      
-      &.minimize {
 
-        background-color: @control_button_minimize_bg_color;
+      &.flip-out {
+
+          -webkit-animation: throbb .5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+          -moz-animation: throbb .5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+          animation: throbb .5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 
       }
+
       
-      &.flip {
+      button {
 
-        background-color: @control_button_flip_bg_color;
+        width: @control_button_height;
+        height: @control_button_width;
+        border-radius: @control_button_radius;
+        padding: 0;
+        margin: 0 3px 0 0;
+        
+        &.close {
 
+          background-color: @control_button_close_bg_color;
+
+        }
+        
+        &.minimize {
+
+          background-color: @control_button_minimize_bg_color;
+
+        }
+        
+        &.flip {
+
+          background-color: @control_button_flip_bg_color;
+
+        }
+
+        transition: ease .31s;
+
+        &:hover {
+            
+            transform: scale(1.2);
+
+
+        }
       }
     }
   }
