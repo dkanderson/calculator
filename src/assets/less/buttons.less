@@ -43,6 +43,12 @@ button {
 
         background-color: @button_bg_color_operators;
 
+        &:focus:hover {
+
+            background: linear-gradient(180deg, rgba(245, 127, 23, 0.21), rgba(245, 127, 23, 0.5)), linear-gradient(180deg, rgba(220, 120, 17, 0.5), rgba(245, 127, 23, 0.15));
+
+        }
+
       }
 
       &.colspan-two {
@@ -57,9 +63,8 @@ button {
 
       } 
 
-      &:focus {
+      &:focus:hover {
 
-        background-color: @button_bg_color_primary;
         background: linear-gradient(180deg, rgba(221,221,221,1), rgba(210,210,210,0.72));
 
       }
