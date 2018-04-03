@@ -335,14 +335,18 @@
       } else if ( dataOperator ) {
 
           cache = [];
-          numCache.push( parseFloat( resultDisplay ) );
           funcCache.push( dataOperator.value );
+
+          if ( !isNaN( resultDisplay ) ) {
+
+            numCache.push( parseFloat( resultDisplay ) );
+
+          }
 
 
           if ( dataOperator.value === 'equals' ){
 
               calculateSomeShit( numCache, funcCache[0], true );
-              funcCache.shift ();
 
           } else {
 
@@ -350,7 +354,12 @@
 
           }
           
+          if ( funcCache.length > 1 ) {
 
+            funcCache.shift();
+
+          }
+          
 
         } else if ( dataDot ) {
 
@@ -372,19 +381,13 @@
 
         } else if (dataAc) {
 
-          if ( acFlag && cache.length > 1 ) {
+          if ( acFlag && funcCache.length > 0 ) {
 
             cache = [];
             resultDisplay = '0';
             acFlag = false;
             ac.innerHTML = 'AC';
 
-            if ( numCache ) {
-
-              numCache.pop();
-
-            }
-            
 
           } else {
 

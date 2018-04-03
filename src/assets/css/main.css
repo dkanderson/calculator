@@ -85,14 +85,16 @@ button {
 .buttons button.operator.right {
   background-color: #F57F17;
 }
+.buttons button.operator.right:focus:hover {
+  background: linear-gradient(180deg, rgba(245, 127, 23, 0.21), rgba(245, 127, 23, 0.5)), linear-gradient(180deg, rgba(220, 120, 17, 0.5), rgba(245, 127, 23, 0.15));
+}
 .buttons button.colspan-two {
   width: 120px;
 }
 .buttons button.right {
   color: #fff;
 }
-.buttons button:focus {
-  background-color: #ddd;
+.buttons button:focus:hover {
   background: linear-gradient(180deg, #dddddd, rgba(210, 210, 210, 0.72));
 }
 .buttons .btm-left-radius {
@@ -254,7 +256,51 @@ button {
     transform: scale(1);
   }
 }
+@-moz-keyframes throb {
+  0% {
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes throb {
+  0% {
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 @-webkit-keyframes throbb {
+  0% {
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@-moz-keyframes throbb {
+  0% {
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes throbb {
   0% {
     transform: scale(0);
   }
